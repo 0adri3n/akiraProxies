@@ -81,4 +81,4 @@ while terminal:
         term()
     elif choice =="2":
         terminal=False
-        print("\n\n    Goodbye :)")
+        print("\n\n    Goodbye :)\n")
