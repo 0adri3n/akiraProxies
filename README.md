@@ -51,7 +51,7 @@ python3 akiraProxies.py
 Go to the folder of akiraProxies:
 
 ```
-cd akiraProxies/
+cd [Path to the folder of akiraProxies]
 ```
 
 And run the script!
