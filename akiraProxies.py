@@ -47,16 +47,29 @@ term()
 
 def proxies():
     type = input("\n    Type of the proxies [http, https, socks4, socks5]> ")
-    anon = input('\n    Anon of the proxies [transparent, anonymous, elite]> ')
-    choicecountry = input("\n    Do you want a specific country? [Y/N]> ")
-    if choicecountry == "Y":
-        country = input("\n    Country ISO code> ")
-        url="https://www.proxy-list.download/api/v1/get?type=" + type + "&anon=" + anon + "&country=" + country
-    elif choicecountry == "N":
-        url="https://www.proxy-list.download/api/v1/get?type=" + type + "&anon=" + anon
+    choiceanon = input("\n    Do you want a specific anon? [Y/N]> ")
+    if choiceanon == "Y":
+        anon = input('\n    Anon of the proxies [transparent, anonymous, elite]> ')
+        choicecountry = input("\n    Do you want a specific country? [Y/N]> ")
+        if choicecountry == "Y":
+            country = input("\n    Country ISO code> ")
+            url="https://www.proxy-list.download/api/v1/get?type=" + type + "&anon=" + anon + "&country=" + country
+        elif choicecountry == "N":
+            url="https://www.proxy-list.download/api/v1/get?type=" + type + "&anon=" + anon
+        else:
+            print("\n    Error.")
+            return
+    elif choiceanon == "N":
+        choicecountry = input("\n    Do you want a specific country? [Y/N]> ")
+        if choicecountry == "Y":
+            country = input("\n    Country ISO code> ")
+            url="https://www.proxy-list.download/api/v1/get?type=" + type + "&country=" + country
+        elif choicecountry == "N":
+            url="https://www.proxy-list.download/api/v1/get?type=" + type 
+        else:
+            print("\n    Error.") 
     else:
-        print("\n    Error.")
-        return
+        print("\n   Error.")       
     path = input("\n    Path to the output> ")
     name_file = input("\n    Name of the file> ")
     os.chdir(path)
@@ -81,4 +94,4 @@ while terminal:
         term()
     elif choice =="2":
         terminal=False
-        print("\n\n    Goodbye :)\n")
+        print("\n\n    Goodbye :)")
